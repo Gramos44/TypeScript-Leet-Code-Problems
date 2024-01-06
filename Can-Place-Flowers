@@ -1,0 +1,17 @@
+function canPlaceFlowers(flowerbed: number[], n: number): boolean {
+
+    const flowerbedLength = flowerbed.length;
+
+    for (let i = 0; i < flowerbedLength; ++i) {
+        const leftNeighbor = i === 0 ? 0 : flowerbed[i - 1];
+        const rightNeighbor = i === flowerbedLength - 1 ? 0 : flowerbed[i + 1];
+
+        if (leftNeighbor + flowerbed[i] + rightNeighbor === 0) {
+
+            flowerbed[i] = 1;
+            --n;
+           
+        }
+    }
+     return n <= 0;
+};      
